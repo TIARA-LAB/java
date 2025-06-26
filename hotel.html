@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tiara Hotel Booking</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #6a0dad, #e6ccff);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero .btn {
+      background: #fff;
+      color: #6a0dad;
+      padding: 0.7rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero .btn:hover {
+      background: #e6ccff;
+    }
+
+    .booking {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .booking form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+      gap: 1rem;
+    }
+
+    .booking input, .booking button {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .booking button {
+      background-color: #6a0dad;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .booking button:hover {
+      background-color: #5a009e;
+    }
+
+    .payment-section {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #f3e6ff;
+      border-radius: 8px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .payment-section input {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .payment-section button {
+      margin-top: 1rem;
+      background-color: #6a0dad;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .rooms {
+      background-color: #e6ccff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .room {
+      background: #fff;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .contact {
+      background: #f3e6ff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer {
+      background: #6a0dad;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .popup-content button {
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+      }
+
+      .booking form {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Tiara</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#booking">Booking</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Tiara Hotel</h1>
+    <p>Luxury, Comfort & Elegance Await You</p>
+ <a href="#booking" class="btn">Book Now</a> 
+  </section>
+
+  <section id="booking" class="booking">
+    <h2>Book a Room</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="date" id="date" required />
+      <input type="number" id="guests" placeholder="Number of Guests" required />
+      <button type="submit">Reserve Now</button>
+    </form>
+
+    <div class="payment-section">
+      <h3>Payment Details</h3>
+      <input type="text" placeholder="Cardholder Name" required />
+      <input type="text" placeholder="Card Number" maxlength="16" required />
+      <input type="text" placeholder="Expiry (MM/YY)" required />
+      <input type="text" placeholder="CVV" maxlength="3" required />
+      <button onclick="submitPayment()">Pay ₦50,000</button>
+    </div>
+  </section>
+
+  <section id="rooms" class="rooms">
+    <h2>Our Rooms</h2>
+    <div class="room">
+      <h3>Deluxe Room</h3>
+      <p>Spacious and elegant room with king-size bed.</p>
+    </div>
+    <div class="room">
+      <h3>Executive Suite</h3>
+      <p>Perfect for business and leisure with a stunning view.</p>
+    </div>
+    <div class="room">
+      <h3>Family Room</h3>
+      <p>Comfortable room for the whole family.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@tiarahotel.com</p>
+    <p>Phone: +234 123 456 7890</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tiara Hotel. All rights reserved.</p>
+  </footer>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3> Booking Confirmed!</h3>
+      <p>Thank you for choosing Tiara Hotel. A confirmation has been sent to your email.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+  
